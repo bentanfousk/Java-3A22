@@ -1,19 +1,55 @@
-
+package tn.esprit.gestionZoo.entities;
 
 public class ZooManagment {
 
-    Animal[] animals;
-    static final int NBRCAGES=25;
-    String Name ;
-    String city;
-    int nbAnimeaux=0;
 
-    ZooManagment(String Name, String city) {
+    private Animal[] animals;
+    private static final int NBRCAGES=25;
+    private String Name ;
+    private String city;
+    private int nbAnimeaux=0;
+
+    public ZooManagment() {
+        animals=new Animal[NBRCAGES];
+    }
+
+    public ZooManagment(String Name, String city) {
 
         this.Name = Name;
         this.city = city;
         animals = new Animal[NBRCAGES];
 
+    }
+
+    public String getName() {
+        return Name;
+    }
+    public String getCity() {
+        return city;
+    }
+    public int getNbAnimeaux() {
+        return nbAnimeaux;
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setName(String name) {
+        if(name.isEmpty())
+            System.out.println("Name is empty");
+        else
+            this.Name = name;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public void setNbAnimeaux(int nbAnimeaux) {
+        this.nbAnimeaux = nbAnimeaux;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
     }
 
     @Override
@@ -23,8 +59,9 @@ public class ZooManagment {
     }
 
    public boolean addAnimal(Animal a) {
-        if(searchAnimal(a)!=-1)
+        if(searchAnimal(a)!=-1 || isZooFull())
             return false;
+
 
 
         if (nbAnimeaux < NBRCAGES) {
@@ -49,7 +86,7 @@ public class ZooManagment {
 
     public int searchAnimal(Animal animal){
         int index=0;
-        while(index<nbAnimeaux && !animals[index].equals(animal)){
+        while(index<nbAnimeaux && !animals[index].getName().equals(animal.getName())){
             index++;
         }
 
