@@ -1,20 +1,24 @@
 package tn.esprit.gestionZoo.entities;
 
 
-public class Animal {
+public  class  Animal {
 
-    private String family ;
-    private String name;
-    private int age;
-    private boolean isMammal;
+    protected String family ;
+    protected String name;
+    protected int age;
+    protected boolean isMammal;
 
-    public Animal() {}
+    //public Animal() { System.out.println("Animal created");}
 
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
         this.age = age;
         this.isMammal = isMammal;
+
+    }
+    public Animal(){
+
     }
 
     public String toString() {

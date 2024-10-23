@@ -1,7 +1,7 @@
 package tn.esprit.gestionZoo.Main;
 
-import  tn.esprit.gestionZoo.entities.Animal;
-import  tn.esprit.gestionZoo.entities.ZooManagment;
+import  tn.esprit.gestionZoo.entities.*;
+
 
 
 public class Main {
@@ -28,6 +28,13 @@ public class Main {
 //        System.out.println(zoo.searchAnimal(me3za));
 
 
+
+    Penguin penguin=new Penguin();
+    Dolphin dolphin=new Dolphin();
+    Aquatic aquatic=new Aquatic();
+    aquatic.swim();
+    dolphin.swim();
+    penguin.swim();
 
 
     }
