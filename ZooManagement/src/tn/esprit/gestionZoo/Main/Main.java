@@ -30,11 +30,30 @@ public class Main {
 
 
     Penguin penguin=new Penguin();
+    System.out.println(zoo.maxPenguinSwimmingDepth());
+    Penguin penguin1=new Penguin("bob",3,"peng",false,"antartica",3.65f);
+    zoo.addAquaticAnimal(penguin1);
+    System.out.println(zoo.maxPenguinSwimmingDepth());
     Dolphin dolphin=new Dolphin();
-    Aquatic aquatic=new Aquatic();
-    aquatic.swim();
+    //Aquatic aquatic=new Aquatic();
+    //aquatic.swim();
     dolphin.swim();
     penguin.swim();
+        System.out.println("________________________________________________________________________\n");
+
+    zoo.displayNumberOfAquaticsByType();
+    zoo.addAquaticAnimal(penguin);
+    zoo.displayNumberOfAquaticsByType();
+    zoo.addAquaticAnimal(dolphin);
+    zoo.displayNumberOfAquaticsByType();
+    //zoo.addAquaticAnimal(aquatic);
+    for(Aquatic lol : zoo.getAquaticAnimals()){
+        if(lol!=null){
+        System.out.println(lol);
+        lol.swim();}
+    }
+
+
 
 
     }

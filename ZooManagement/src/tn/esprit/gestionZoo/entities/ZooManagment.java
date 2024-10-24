@@ -3,11 +3,16 @@ package tn.esprit.gestionZoo.entities;
 public class ZooManagment {
 
 
-    private Animal[] animals;
+
     private static final int NBRCAGES=25;
     private String Name ;
     private String city;
     private int nbAnimeaux=0;
+    private int nbAquatics=0;
+    private Animal[] animals;
+    private Aquatic[] aquaticAnimals;
+
+
 
     public ZooManagment() {
         animals=new Animal[NBRCAGES];
@@ -18,6 +23,7 @@ public class ZooManagment {
         this.Name = Name;
         this.city = city;
         animals = new Animal[NBRCAGES];
+        aquaticAnimals = new Aquatic[10];
 
     }
 
@@ -50,6 +56,13 @@ public class ZooManagment {
 
     public void setAnimals(Animal[] animals) {
         this.animals = animals;
+    }
+
+    public void setAquaticAnimals(Aquatic[] aquaticAnimals) {
+        this.aquaticAnimals = aquaticAnimals;
+    }
+    public Aquatic[] getAquaticAnimals() {
+        return aquaticAnimals;
     }
 
     @Override
@@ -125,4 +138,41 @@ public class ZooManagment {
             return z2;
     }
 
+    public void addAquaticAnimal(Aquatic aquatic){
+       aquaticAnimals[nbAquatics]=aquatic;
+       nbAquatics++;
+
+    }
+
+    public float maxPenguinSwimmingDepth(){
+       float max=0f;
+       for (int i=0;i<nbAquatics;i++){
+           if(aquaticAnimals[i] instanceof Penguin){
+               if(((Penguin)aquaticAnimals[i]).getSwimmingDepth()>max){
+                   max=((Penguin)aquaticAnimals[i]).getSwimmingDepth();
+               }
+           }
+       }
+       return max;
+    }
+
+    public void displayNumberOfAquaticsByType(){
+        int nbPenguis=0;
+        int nbDolphins=0;
+        for(Aquatic a : aquaticAnimals){
+            if(a!=null){
+                if(a instanceof Penguin){
+                    nbPenguis++;
+
+                }
+                else if(a instanceof Dolphin){
+                    nbDolphins++;
+                }
+            }
+        }
+        System.out.println("Number of Penguins : "+nbPenguis);
+        System.out.println("Number of Dolphins : "+nbDolphins);
+    }
+
 }
+
